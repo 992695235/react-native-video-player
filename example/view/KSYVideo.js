@@ -30,6 +30,14 @@ export default class KSYVideo extends Component {
         this.setNativeProps({ seek: time });
     };
 
+    reload = (url) => {
+        UIManager.dispatchViewManagerCommand(
+            findNodeHandle(this.refs[RCT_VIDEO_REF]),
+            UIManager.RCTKSYVideo.Commands.reloadVideoSource,
+            [{uri:url}]
+        );
+    }
+
     _onTouch = (event)=>{
         if (!this.props.onTouch){
             return;

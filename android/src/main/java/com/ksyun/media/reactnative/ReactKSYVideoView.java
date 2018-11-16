@@ -388,6 +388,11 @@ public class ReactKSYVideoView extends RelativeLayout implements LifecycleEventL
     }
 
     public void reload(String url){
+        if (ksyTextureView != null) {
+                ksyTextureView.stop();
+                ksyTextureView.reset();
+            setDataSource(url);
+        }
         WritableMap src = Arguments.createMap();
         src.putString(ReactKSYVideoViewManager.PROP_SRC_URI, url);
         
@@ -396,9 +401,10 @@ public class ReactKSYVideoView extends RelativeLayout implements LifecycleEventL
         mEventEmitter.receiveEvent(getId(), Events.EVENT_LOAD_START.toString(), event);
         mDataSource = url;
         
-        if (ksyTextureView != null){
-            ksyTextureView.reload(url, true);
-        }                  
+//        if (ksyTextureView != null){
+//            ksyTextureView.reload(url,true,KSYMediaPlayer.KSYReloadMode.KSY_RELOAD_MODE_ACCURATE);
+//            System.out.println("1111111");
+//        }
     }
 
     public void setPausedModifier(boolean paused) {

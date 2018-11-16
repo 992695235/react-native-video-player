@@ -103,7 +103,7 @@ export default class VodScreen extends Component {
           {this.state.showbar?(
             <View style={{height: 10, marginRight:10, alignSelf:'flex-end'}}>
               <View style={{height:windowHeight, justifyContent:'center'}}>
-                <TouchableOpacity onPress={()=>{this.video.saveBitmap();}}>
+                <TouchableOpacity onPress={()=>{this.video.reload("https://lmbsy.qq.com/flv/28/108/o0792f2x8qr.m701.mp4?sdtfrom=v1010&guid=36b65aceb9fef479c2725a629e38ef68&vkey=3D0CA51A1261795452079520C2A62D335572ABEE438C0FC9AC2A428D50883307E29D2BA95526CBABB761A963EFE9BE23E2E00557CBE618BAE32CB5A175355B43B609A0852696BE6D58E43E73B23BB64E8BBF1BFC91DE679EAC8F7889B8245A5C0ED1156643B61489DD4542E87A72781402900A58D57DA743");}}>
                    <Image style={{width:40,height:40}} source={require("../res/images/screen_shot.png")}/>
                 </TouchableOpacity>
               </View>
