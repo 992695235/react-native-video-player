@@ -10,13 +10,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    sourceSets.main {
+        jniLibs.srcDirs 'libs'
+        jni.srcDirs = [] // This prevents the auto generation of Android.mk
+    }
 }
 
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile "com.facebook.react:react-native:+"  // From node_modules
-
-    compile 'com.ksyun.media:libksyplayer-arm64:2.1.0'
-    compile 'com.ksyun.media:libksyplayer-x86:2.1.0'
-    compile 'com.ksyun.media:libksyplayer-armv7a:2.1.0'
-    compile 'com.ksyun.media:libksyplayer-java:2.1.0'
+//    compile 'com.ksyun.media:libksyplayer-arm64:2.1.0'
+//    compile 'com.ksyun.media:libksyplayer-x86:2.1.0'
+//    compile 'com.ksyun.media:libksyplayer-armv7a:2.1.0'
+//    compile 'com.ksyun.media:libksyplayer-java:2.1.0'
 }
